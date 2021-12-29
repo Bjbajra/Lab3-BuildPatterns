@@ -1,24 +1,17 @@
-﻿using HouseF.Houses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace HouseF
 {
-    public class HouseFactory 
+    public class HouseFactory
     {
         private Dictionary<string, Type> _houses;
         public HouseFactory()
         {
             _houses = BuildHouseByReflection();
         }
-
         public House ConstructHouse(string houseName)
         {
-             return GetHouseFromDictionary(houseName.ToLower());
+            return GetHouseFromDictionary(houseName.ToLower());
         }
         #region BuildHouseWithoutReflection
         /*private Dictionary<string, Type> BuildHouses()
@@ -39,9 +32,9 @@ namespace HouseF
             }
             return (House) Activator.CreateInstance(houseType);
         }*/
-    #endregion
+        #endregion
 
-    private Dictionary<string, Type> BuildHouseByReflection()
+        private Dictionary<string, Type> BuildHouseByReflection()
         {
             IEnumerable<Type> availableTypes = Assembly
                 .GetExecutingAssembly()
@@ -50,15 +43,15 @@ namespace HouseF
 
             Dictionary<string, Type> availableHouses = new Dictionary<string, Type>();
 
-            foreach(Type t in availableTypes)
+            foreach (Type t in availableTypes)
             {
-                availableHouses.Add(t.Name.ToLower(), t);                
+                availableHouses.Add(t.Name.ToLower(), t);
             }
             return availableHouses;
         }
         private House GetHouseFromDictionary(string houseName)
         {
-            Type houseType = _houses[houseName];          
+            Type houseType = _houses[houseName];
             return (House)Activator.CreateInstance(houseType);
         }
     }

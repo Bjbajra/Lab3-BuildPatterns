@@ -7,6 +7,7 @@ namespace HouseFB.Tests
     public class HouseBuilderTests
     {
         private HouseBuilder _houseBuilder;
+
         [SetUp]
         public void SetUp()
         {
@@ -14,26 +15,23 @@ namespace HouseFB.Tests
         }
 
         [Test]
-        [Ignore("this")]
         public void HouseBuilder_SetNegativeValueOfWindow_ThrowAgrumentOutOfRangeException()
         {
             //Arrange
-            
             //Act
-            ArgumentOutOfRangeException? ex = Assert.Throws<ArgumentOutOfRangeException>(() => _houseBuilder.SetNumberOfWindows(-1));
 
             //Assert
-            Assert.That("Can not set a negative number of windows!", Is.EqualTo(ex.Message));
+            Assert.Throws<ArgumentOutOfRangeException>(() => _houseBuilder.SetStreetAdressl("NewRoad 1").SetNumberOfWindows(-2).Build());
         }
 
         [Test]
         public void HouseBuilder_NoParkingSpotInGarage_ReturnHasGarageFalse()
         {
             //Arrange
-            House house = _houseBuilder.SetStreetAdressl("Main Street 3").SetNumberOfParkingSpot(0).Build();  
-            
+            House house = _houseBuilder.SetStreetAdressl("Main Street 3").SetNumberOfParkingSpot(0).Build();
+
             bool result = house.HasGarage;
-            
+
             //Act
 
             //Assert   

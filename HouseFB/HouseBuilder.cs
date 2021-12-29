@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HouseFB
+﻿namespace HouseFB
 {
     public class HouseBuilder
     {
@@ -12,16 +6,12 @@ namespace HouseFB
         public HouseBuilder()
         {
             _house = new House();
-            
         }
-
         public HouseBuilder SetStreetAdressl(string streetAdress)
-        {           
+        {
             _house.StreetAdress = streetAdress;
             return this;
         }
-
-
         public HouseBuilder WithSwimmingPool()
         {
             _house.HasSwimmingPool = true;
@@ -39,12 +29,12 @@ namespace HouseFB
         }
         public HouseBuilder SetNumberOfParkingSpot(int noOfParkingSpotInGarage)
         {
-            _house.ParkingSpotsInGarage = noOfParkingSpotInGarage;            
+            _house.ParkingSpotsInGarage = noOfParkingSpotInGarage;
             return this;
-                        
+
         }
         public House Build()
-        {           
+        {
             if (String.IsNullOrEmpty(_house.StreetAdress))
             {
                 throw new ArgumentException("You must provide the street address.");
@@ -61,7 +51,6 @@ namespace HouseFB
             {
                 throw new ArgumentOutOfRangeException("Can not set a negative number of parking spot!");
             }
-
             return _house;
         }
     }
