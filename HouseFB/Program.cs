@@ -1,10 +1,10 @@
 ﻿using HouseFB;
 
 HouseBuilder builder = new HouseBuilder();
-builder.SetStreetAdressl("NewRoad 11");
+builder.SetStreetAddress("NewRoad 11");
 House house = builder
     .WithSwimmingPool()
-    .AddNumberOfRooms(3)
+    .AddNumberOfRooms(2)
     .SetNumberOfWindows(1)
     .SetNumberOfParkingSpot(2)
     .Build();

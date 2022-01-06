@@ -9,7 +9,7 @@ namespace HouseFB
         public int NoOfWindows { get; set; } = 0;
 
         /// <summary>This field includes the street name and the street number</summary>
-        public string StreetAdress { get; set; }
+        public string StreetAddress { get; set; }
 
         public bool HasSwimmingPool { get; set; }
 
@@ -19,11 +19,11 @@ namespace HouseFB
 
         public House() { }
 
-        public House(int noOfRooms, int noOfWindows, string streeAdress, bool hasSwimmingPool, int parkingSpotsInGarage)
+        public House(int noOfRooms, int noOfWindows, string streeAddress, bool hasSwimmingPool, int parkingSpotsInGarage)
         {
             NoOfRooms = noOfRooms;
             NoOfWindows = noOfWindows;
-            StreetAdress = streeAdress;
+            StreetAddress = streeAddress;
             HasSwimmingPool = hasSwimmingPool;
             ParkingSpotsInGarage = parkingSpotsInGarage;
         }
@@ -31,7 +31,7 @@ namespace HouseFB
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"This house is located at {StreetAdress}.");
+            sb.AppendLine($"This house is located at {StreetAddress}.");
             sb.AppendLine($"It has {NoOfRooms} rooms and {NoOfWindows} windows");
             if (HasSwimmingPool & HasGarage)
             {

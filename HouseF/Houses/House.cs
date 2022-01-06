@@ -9,7 +9,7 @@ namespace HouseF
         public int NoOfWindows { get; set; } = 0;
 
         /// <summary>This field includes the street name and the street number</summary>
-        public string StreetAdress { get; set; }
+        public string StreetAdress { get; set; } 
 
         public bool HasSwimmingPool { get; set; }
 

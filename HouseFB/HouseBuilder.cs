@@ -7,9 +7,9 @@
         {
             _house = new House();
         }
-        public HouseBuilder SetStreetAdressl(string streetAdress)
+        public HouseBuilder SetStreetAddress(string streetAddress)
         {
-            _house.StreetAdress = streetAdress;
+            _house.StreetAddress = streetAddress;
             return this;
         }
         public HouseBuilder WithSwimmingPool()
@@ -35,13 +35,13 @@
         }
         public House Build()
         {
-            if (String.IsNullOrEmpty(_house.StreetAdress))
+            if (String.IsNullOrEmpty(_house.StreetAddress))
             {
                 throw new ArgumentException("You must provide the street address.");
             }
             if (_house.NoOfRooms <= 0)
             {
-                throw new ArgumentOutOfRangeException("Can not set a negative number of rooms!");
+                throw new ArgumentOutOfRangeException("Can not add a negative number of rooms!");
             }
             if (_house.NoOfWindows < 0)
             {
